@@ -1,85 +1,50 @@
 <!DOCTYPE html>
 <html>
+<!-- <html manifest="iframework.appcache"> -->
 <head>
-  <meta charset='utf-8'>
-
-  <title>forresto/friction-free-creative-economy @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #da8d2c;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #2572d3; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #2572d3; }
-    h3 { text-align: center; color: #2572d3; }
-    a { color: #2572d3; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+  <meta charset="utf-8" />
+  <title>Model of Deferred Tipping in a Friction-Free Creative Economies</title>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
+  
+  <script src="http://meemoo.org/iframework/iframework-min.js"></script>
+  
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Nova+Flat' rel='stylesheet' type='text/css'>
+  
+  <link href="http://meemoo.org/iframework/iframework.css" rel="stylesheet" type="text/css" />
+  
 </head>
-
 <body>
-  <a href="https://github.com/forresto/friction-free-creative-economy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+  <footer>
+    <a href="http://meemoo.org/">meemoo</a> iframework by <a href="http://forresto.com/">forrest oliphant</a><br />
+    <a href="https://github.com/meemoo/iframework">view source</a> on github<br />
+  </footer>
+  
+  <script type="text/javascript">
+    $(function(){
 
-  <div id="container">
+      Iframework.showGraph(
+        {"info":{"author":"","title":"","description":"","parent":"","permalink":""},"nodes":[{"src":"modules/frictionfree.html","x":130,"y":64,"w":183,"h":197,"state":{"creddit":"{\"defer5\": \".05\", \"defer10\": \".1\", \"defer10b\": \".1\", \"defer10c\": \".1\"}","name":"tip a movie"},"id":0},{"src":"modules/frictionfree.html","x":581,"y":46,"w":186,"h":191,"state":{"creddit":"{\"defer40\": \".4\",\"defer40b\": \".4\"}","name":"band on soundtrack"},"id":1},{"src":"modules/frictionfree.html","x":687,"y":340,"w":182,"h":184,"state":{"creddit":"{}","name":"musician"},"id":3},{"src":"modules/frictionfree.html","x":990,"y":339,"w":182,"h":186,"state":{"creddit":"{}","name":"musician"},"id":4},{"src":"modules/frictionfree.html","x":119,"y":891,"w":206,"h":267,"state":{"creddit":"{\"defer50\": \".5\"}","name":"circular tip deferral"},"id":2},{"src":"modules/frictionfree.html","x":128,"y":568,"w":181,"h":228,"state":{"name":"actor"},"id":6},{"src":"modules/frictionfree.html","x":434,"y":573,"w":181,"h":228,"state":{"name":"actor"},"id":5},{"src":"modules/frictionfree.html","x":751,"y":576,"w":181,"h":228,"state":{"name":"actor","creddit":"{\"defer10\":\".1\"}"},"id":8},{"src":"modules/frictionfree.html","x":857,"y":904,"w":181,"h":228,"state":{"name":"actor's teacher"},"id":7},{"src":"modules/frictionfree.html","x":456,"y":895,"w":200,"h":261,"state":{"creddit":"{\"defer50\": \".5\"}","name":"co-collaborator"},"id":10}],"edges":[{"source":[3,"defer50"],"target":[2,"tip"]},{"source":[1,"defer1"],"target":[3,"tip"]},{"source":[6,"defer10"],"target":[7,"tip"]},{"source":[1,"defer40"],"target":[3,"tip"]},{"source":[0,"defer5"],"target":[1,"tip"]},{"source":[2,"defer50"],"target":[10,"tip"]},{"source":[10,"defer50"],"target":[2,"tip"]},{"source":[8,"defer10"],"target":[7,"tip"]},{"source":[1,"defer40b"],"target":[4,"tip"]},{"source":[0,"defer10"],"target":[6,"tip"]},{"source":[0,"defer10b"],"target":[5,"tip"]},{"source":[0,"defer10c"],"target":[8,"tip"]}]}
+      );
 
-    <div class="download">
-      <a href="https://github.com/forresto/friction-free-creative-economy/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/forresto/friction-free-creative-economy/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
-    </div>
+    });
 
-    <h1><a href="https://github.com/forresto/friction-free-creative-economy">friction-free-creative-economy</a>
-      <span class="small">by <a href="https://github.com/forresto">forresto</a></span></h1>
+  </script>
 
-    <div class="description">
-      a simulation of deferred tips (powered by Meemoo)
-    </div>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-274009-19']);
+    _gaq.push(['_trackPageview']);
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-      <h2>Contact</h2>
-      <p>Forrest Oliphant (github.com@sembiki.com)<br/>      </p>
-    
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/forresto/friction-free-creative-economy/zipball/master">zip</a> or
-      <a href="https://github.com/forresto/friction-free-creative-economy/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/forresto/friction-free-creative-economy</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/forresto/friction-free-creative-economy">forresto/friction-free-creative-economy</a>
-    </div>
-
-  </div>
-
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
 </body>
 </html>

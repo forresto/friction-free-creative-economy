@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>friction-free</title>
+  <meta name="author" content="forresto">
+  <meta name="description" content="a module for illustrating tip deferring in a friction-free creative economy" />
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://meemoo.org/meemoo/meemoo.js"></script>
+
+  <style type="text/css">
+    html, body {
+      font-family: verdana;
+      font-size: 10px;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <p id="name">Give a tip?</p>
+
+  <form id="tip">
+    <input type="number" style="width:50px;" />
+    <button type="submit">Ching-a-ling</button>
+  </form>
+
+  <div id="tally">
+  </div>
+    
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+
+    var total = 0;
+
+    var percentages = {};
+
+    var lineTimeout;
+
+    function tip (amount) {
+      amount = parseInt(amount);
+      var deferrered = 0;
+      if (amount===amount) {
+        var left = amount;
+        for (var outputname in percentages) {
+          if ( percentages.hasOwnProperty(outputname) ) {
+            var defer = Math.floor(percentages[outputname] * amount);
+            if (defer >= 1 && left >= defer) {
+              Meemoo.send(outputname, defer);
+              deferrered += defer;
+              left -= defer;
+            }
+          }
+        }
+        if (amount >= 1) {
+          //left = Math.floor(left*100)/100;
+          total += left;
+          //total = Math.floor(total*100)/100;
+          $("#tally").prepend('+'+(left/100)+' = '+(total/100)+'<br />'+
+          '(got '+(amount/100)+' deferrered '+(deferrered/100)+')<br />');
+
+          window.clearTimeout(lineTimeout);
+          lineTimeout = window.setTimeout(function(){
+            $("#tally").prepend('<hr />');
+          },300);
+        }
+      }
+    }
+
+    $("#tip").submit(function(){
+      tip( $("#tip input").val() * 100 );
+    });
+
+    function creddit (setup) {
+      setup = JSON.parse(setup);
+      for (var creddit in setup) {
+        if ( setup.hasOwnProperty(creddit) ) {
+          var percent = parseFloat(setup[creddit]);
+          percentages[creddit] = percent;
+          var output = {};
+          output.type = "number";
+          output.description = "defer "+Math.round(percent*100)+"%";
+          Meemoo.addOutput(creddit, output);
+        }
+      }
+      // Make sure percentages are <1, otherwise make them percentage of sum
+    }
+    
+    Meemoo.setInfo({
+      title: "friction-free",
+      author: "forresto",
+      description: "a module for illustrating tip deferring in a friction-free creative economy"
+    }).addInputs({
+      tip: {
+        action: tip,
+        type: "int"
+      },
+      name: {
+        action: function(name){ $("#name").text(name); },
+        type: "string"
+      },
+      creddit: {
+        action: creddit,
+        type: "string",
+        description: 'JSON string like {"defer5": ".05", "defer10": ".1"}'
+      },
+    });
+    
+  });
+  
+  </script>
+  
+</body>
+</html>
