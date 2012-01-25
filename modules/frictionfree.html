@@ -95,7 +95,8 @@
     }).addInputs({
       tip: {
         action: tip,
-        type: "int"
+        type: "int",
+        description: "tip value in cents (makes the floaty stuff less complicated)"
       },
       name: {
         action: function(name){ $("#name").text(name); },
