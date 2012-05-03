@@ -31,7 +31,7 @@
     
   <script type="text/javascript">
   
-  $(document).ready(function() {
+  $(function(){
 
     var total = 0;
 
@@ -71,6 +71,7 @@
 
     $("#tip").submit(function(){
       tip( $("#tip input").val() * 100 );
+      return false;
     });
 
     function creddit (setup) {
