@@ -81,7 +81,7 @@
           var percent = parseFloat(setup[creddit]);
           percentages[creddit] = percent;
           var output = {};
-          output.type = "number";
+          output.type = "int";
           output.description = "defer "+Math.round(percent*100)+"%";
           Meemoo.addOutput(creddit, output);
         }
